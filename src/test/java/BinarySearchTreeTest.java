@@ -176,6 +176,19 @@ class BinarySearchTreeTest {
     }
 
     @Test
+    void rebalancedHeight() {
+        for (int i = 0; i < 10; i++){
+            BinarySearchTree<Integer> tree = generateBST();
+
+            print.printTree(tree.getRoot());
+            tree.rebalance();
+            print.printTree(tree.getRoot());
+
+            Assertions.assertEquals((int)(Math.log(tree.size()) / Math.log(2)),tree.height());
+        }
+    }
+
+    @Test
     void rebalance() {
         for (int i = 0; i < 10; i++){
             BinarySearchTree<Integer> searchTree = generateBST();

@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,6 +31,7 @@ public class BinaryTreeTest {
         tree.getRoot().getLeftChild().addLeftChild(node3);
         tree.getRoot().getLeftChild().addRightChild(node4);
     }
+
 
     @Test
     void isEmpty() {
