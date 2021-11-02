@@ -156,6 +156,18 @@ class BinarySearchTreeTest {
     }
 
     @Test
+    void removeRootElement() {
+        treeInt = new BinarySearchTree<>();
+        treeInt.insert(10);
+
+        print.printTree(treeInt.getRoot());
+
+        treeInt.removeElement(10);
+
+        //print.printTree(treeInt.getRoot());
+    }
+
+    @Test
     void findMin() {
         Assertions.assertEquals(2,treeInt.findMin());
         Assertions.assertEquals("Asenova",treeStr.findMin());

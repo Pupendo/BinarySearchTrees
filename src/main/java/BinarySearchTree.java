@@ -44,7 +44,7 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T>{
 
     public void removeElement(T element){
         if (contains(element)){
-            removeElement(getRoot(),element);
+            setRoot(removeElement(getRoot(),element));
         }
     }
 
