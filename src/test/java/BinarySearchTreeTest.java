@@ -181,10 +181,18 @@ class BinarySearchTreeTest {
             BinarySearchTree<Integer> tree = generateBST();
 
             print.printTree(tree.getRoot());
+            System.out.println();
             tree.rebalance();
             print.printTree(tree.getRoot());
+            System.out.println();
 
-            Assertions.assertEquals((int)(Math.log(tree.size()) / Math.log(2)),tree.height());
+            int size = tree.size();
+            int height = tree.height();
+
+            System.out.println("Size: "+size);
+            System.out.println("Height: "+height);
+
+            Assertions.assertEquals((int)(Math.log(size) / Math.log(2)),height);
         }
     }
 
@@ -208,7 +216,7 @@ class BinarySearchTreeTest {
         BinarySearchTree<Integer> searchTree = new BinarySearchTree<>();
         Random random = new Random();
 
-        int size = random.nextInt(1,50);
+        int size = random.nextInt(1,100);
 
         for (int i = 0; i <= size; i++){
           searchTree.insert(random.nextInt(1,101));
