@@ -164,6 +164,7 @@ class BinarySearchTreeTest {
 
         treeInt.removeElement(10);
 
+        Assertions.assertTrue(treeInt.isEmpty());
         //print.printTree(treeInt.getRoot());
     }
 

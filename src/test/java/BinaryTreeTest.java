@@ -79,6 +79,13 @@ public class BinaryTreeTest {
         tree.getRoot().getRightChild().addLeftChild(node);
         Assertions.assertTrue(tree.contains("Hello World"));
         Assertions.assertFalse(tree.contains("Hell"));
+
+        tree = new BinaryTree<>();
+        node.setElement(23);
+        tree.setRoot(node);
+
+        Assertions.assertTrue(tree.contains(23));
+        Assertions.assertFalse(tree.contains(7));
     }
 
     @Test
@@ -88,8 +95,8 @@ public class BinaryTreeTest {
         Assertions.assertNull(tree.inOrder());
         Assertions.assertNull(tree.postOrder());
         Assertions.assertNull(tree.preOrder());
-
         Assertions.assertNull(tree.levelOrder());
+
         //Test if height method returns -1 when the tree is empty
         Assertions.assertEquals(-1,tree.height());
     }
