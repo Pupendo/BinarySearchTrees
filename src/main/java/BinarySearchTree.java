@@ -114,27 +114,18 @@ public class BinarySearchTree<T extends Comparable<T>> extends BinaryTree<T>{
 
     public void rebalance(){
         ArrayList<T> inOrder =  inOrder();
-        setRoot(buildBST(toArray(inOrder)));
+        setRoot(rebalance(inOrder));
     }
 
-    private BinarySearchTreeNode<T> buildBST(T[] list){
-        if (list.length == 0){
+    private BinarySearchTreeNode<T> rebalance(ArrayList<T> list){
+        if (list.size() == 0){
             return null;
         }
-        int index = list.length/2;
+        int index = list.size()/2;
         BinarySearchTreeNode<T> node = new BinarySearchTreeNode<>();
-        node.setElement(list[index]);
-        node.addLeftChild(buildBST(Arrays.copyOfRange(list,0,index)));
-        node.addRightChild(buildBST(Arrays.copyOfRange(list,index+1,list.length)));
+        node.setElement(list.get(index));
+        node.addLeftChild(rebalance(new ArrayList<>(list.subList(0,index))));
+        node.addRightChild(rebalance(new ArrayList<>(list.subList(index +1,list.size()))));
         return node;
     }
-
-    private <T> T[] toArray(List<T> list) {
-        T[] toR = (T[]) java.lang.reflect.Array.newInstance(list.get(0).getClass(), list.size());
-        for (int i = 0; i < list.size(); i++) {
-            toR[i] = list.get(i);
-        }
-        return toR;
-    }
-
 }
